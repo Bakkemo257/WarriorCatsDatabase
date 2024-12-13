@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+<!-- JINJA -->
+{% block head %}
+<title>WarriorsInfo</title>
+{% endblock %}
+
+{% block body %}
+<form method="POST">
+    <div class="structure">
+        <div class="layoutsafer">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="age" placeholder="Age" required>
+            <input type="text" name="gender" placeholder="Gender" required>
+            <input type="text" name="clan_name" placeholder="Clan Name" required>
+            <input type="text" name="life" placeholder="Life" required>
+            <button type="submit">Add</button>
+        </div>
+    </div>
+    </form>
+
+
+
+
+
+
+<!-- Display data -->
+<h2>Database Entries</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Clan Name</th>
+            <th>Life</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('delete', id=row[0]) }}"><button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(126, 173, 155);
+}
+
+.structure{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.layoutsafer{
+    
+}
